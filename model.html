@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene background = "color:green">
+        <a-assets timeout = "5000">
+            <a-asset-item src = "./giraffe/assets/giraffe/scene.gltf" id = "giraffe"></a-asset-item>
+            <a-asset-item src = "./giraffe/dining model/tinker.obj" id = "tinker"></a-asset-item>
+            <a-asset-item src = "./giraffe/dining model/obj.mtl" id = "obj"></a-asset-item>
+            <a-asset-item src = "./deserttrain/tinker.obj" id = "tinker-train"></a-asset-item>
+            <a-asset-item src = "./deserttrain/obj.mtl" id = "obj-train"></a-asset-item>
+        </a-assets>
+        <a-entity light = "type: ambient; intensity: 1"></a-entity>
+        <a-entity animation="property: rotation; to: 0 360 0;easing:linear; loop: true; dur: 10000">
+        <a-entity light = "type: directional; intensity: 5; color:red; distance: 50; decay: 5; castShadow: true" position = "-100 20 20"></a-entity>
+    </a-entity>
+    <a-circle position = "-0.4 -0.7 -25" rotation = "-90 0 0" radius = "100" shadow = "receive:true" visible = "true" color = "orange"></a-circle>
+        <a-entity>
+           <a-entity gltf-model = "#giraffe" position = "-9 4 8.2" rotation = "0 90 0" scale = "1 1 1" shadow  = "cast:true; receive: false" ></a-entity>
+           <a-entity obj-model = "obj:#tinker; mtl: #obj" position = "5 0 0" rotation = "-90 -90 0" scale = "0.05 0.05 0.05"></a-entity>
+           <a-entity obj-model = "obj:#tinker-train; mtl: #obj-train" position = "20 0 0" rotation = "-90 -90 0" scale = "0.05 0.05 0.05"></a-entity>
+           
+        </a-entity>
+        
+    </a-scene>
+</body>
+</html>
